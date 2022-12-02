@@ -19,7 +19,8 @@ i/ *   O   O   * \i
        |___|
 ```
 
-## Daily Results ☃️
+
+## 2022 Daily Results ☃️
 - Day 01: 2 ⭐️
 - Day 02: 2 ⭐️
 
