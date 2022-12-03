@@ -1,4 +1,4 @@
-# Advent of Code Day 1: https://adventofcode.com/2022/day/2
+# Advent of Code Day 2: https://adventofcode.com/2022/day/2
 # Problem Created by Eric Wastl
 # Solution by Nicolle M
 
