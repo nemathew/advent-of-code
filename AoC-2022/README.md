@@ -4,5 +4,3 @@ Wish me Good Luck, I'm sure going to need it!
 
 ### What is Advent Of Code anyways? 
 Good question young jedi - check out [Advent of Code](https://adventofcode.com/) for more info
-
-#### Testing out Github contribution settings 

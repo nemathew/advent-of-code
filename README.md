@@ -21,8 +21,11 @@ i/ *   O   O   * \i
 
 
 ## 2022 Daily Results ☃️
-- Day 01: 2 ⭐️
-- Day 02: 2 ⭐️
-- Day 02: 2 ⭐️
-
-... to be continued 🎅
+ Advent Day | # Stars | Total Spotify Pts  |
+ | --- |:---:| ---:|
+ | Day 01 | ⭐️⭐️ | |
+ | Day 02 | ⭐️⭐️ | |
+ | Day 03 | ⭐️⭐️ | |
+ | Day 04 | ⭐️⭐️ | 1633 |
+ 
+... to be continued 🎅 
