@@ -19,10 +19,11 @@ i/ *   O   O   * \i
        |___|
 ```
 
-## 2023 Daily Results ☃️
+## 2023 Daily Results 🎅
  Advent Day | # Stars | Total Spotify Pts  | Spotify Rank |
  | --- |:---:| :---:| ---:|
  | Day 01 | ⭐️⭐️ | 526 | 29 |
+ | Day 02 | ⭐️⭐️ | 1179 | 23 |
 
 
 ## 2022 Daily Results ☃️
