@@ -1,3 +1,7 @@
+# Advent of Code Day 1: https://adventofcode.com/2023/day/1
+# Problem Created by Eric Wastl
+# Solution by Nicolle M
+
 import re
 
 input_list = []
