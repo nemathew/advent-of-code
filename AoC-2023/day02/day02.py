@@ -2,8 +2,6 @@
 # Problem Created by Eric Wastl
 # Solution by Nicolle M
 
-import sys
-
 input_list = []
 
 # Read each line from file 

@@ -1,4 +1,6 @@
-from itertools import product
+# Advent of Code Day 3: https://adventofcode.com/2023/day/3
+# Problem Created by Eric Wastl
+# Solution by Nicolle M
 
 input_list = []
 gears = {}
