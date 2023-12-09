@@ -1,4 +1,4 @@
-# Advent of Code Day 4: https://adventofcode.com/2023/day/4
+# Advent of Code Day 7: https://adventofcode.com/2023/day/7
 # Problem Created by Eric Wastl
 # Solution by Nicolle M
 
@@ -19,6 +19,7 @@ for i, line in enumerate(input_list):
     hand, bid = line.split()
     df.loc[i] = {"hand": hand, "bid": int(bid)}
 
+# create dictionary of (card_value: countOfCardInHand)
 def countCards(hand):
     temp = {}
     for i in hand:
@@ -30,6 +31,7 @@ def countCards(hand):
 
 df["countCardsDict"] = df.apply(lambda x: countCards(x.hand), axis = 1)
 
+# Camel Cards Classification Functions 
 def checkFiveOfKind(cardDict):
     if 5 in cardDict.values(): return True
     else: return False
@@ -52,8 +54,7 @@ def checkTwoPair(cardDict):
     cardDictValues = list(cardDict.values())
     count2s = 0
     for i in range(0, len(cardDictValues)): 
-        if cardDictValues[i] == 2:
-            count2s += 1
+        if cardDictValues[i] == 2: count2s += 1
     
     if count2s == 2: return True
     else: return False
@@ -62,12 +63,13 @@ def checkOnePair(cardDict):
     cardDictValues = list(cardDict.values())
     count2s = 0
     for i in range(0, len(cardDictValues)): 
-        if cardDictValues[i] == 2:
-            count2s += 1
+        if cardDictValues[i] == 2: count2s += 1
     
     if count2s == 1: return True
     else: return False
-    
+
+# Going from highest possible hand to lowest possible hand, 
+# return the value of the type of hand first encountered
 def classifyHand(countCardsDict):
     if checkFiveOfKind(countCardsDict):
         return 6
@@ -90,8 +92,7 @@ df = df.sort_values(by=["ranked"])
 
 faceCards = {"T": 10, "J": 11, "Q": 12, "K": 13, "A":14}
 
-
-def replaceFaceCards(hand):
+def replaceFaceCards(hand, faceCards):
     hand = list(hand)
     for i, val in enumerate(hand):
         if val in faceCards.keys():
@@ -182,36 +183,27 @@ df_rank_j6 = df.loc[df.rankedJoker == 6]
 
 faceCardsJ = {"T": 10, "J": 1, "Q": 12, "K": 13, "A":14}
 
-def replaceFaceCardsJ(hand):
-    hand = list(hand)
-    for i, val in enumerate(hand):
-        if val in faceCardsJ.keys():
-            hand[i] = faceCardsJ[val]
-        else:
-            hand[i] = int(val)
-    return hand
-
 df["handsWOFaceCardsJ"] = ""
 if len(df_rank_j0) > 0:
-    df_rank_j0["handsWOFaceCardsJ"] = df_rank_j0.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j0["handsWOFaceCardsJ"] = df_rank_j0.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j0 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 if len(df_rank_j1) > 0:
-    df_rank_j1["handsWOFaceCardsJ"] = df_rank_j1.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j1["handsWOFaceCardsJ"] = df_rank_j1.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j1 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 if len(df_rank_j2) > 0:
-    df_rank_j2["handsWOFaceCardsJ"] = df_rank_j2.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j2["handsWOFaceCardsJ"] = df_rank_j2.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j2 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 if len(df_rank_j3) > 0:
-    df_rank_j3["handsWOFaceCardsJ"] = df_rank_j3.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j3["handsWOFaceCardsJ"] = df_rank_j3.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j3 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 if len(df_rank_j4) > 0:
-    df_rank_j4["handsWOFaceCardsJ"] = df_rank_j4.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j4["handsWOFaceCardsJ"] = df_rank_j4.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j4 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 if len(df_rank_j5) > 0:
-    df_rank_j5["handsWOFaceCardsJ"] = df_rank_j5.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j5["handsWOFaceCardsJ"] = df_rank_j5.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j5 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 if len(df_rank_j6) > 0:
-    df_rank_j6["handsWOFaceCardsJ"] = df_rank_j6.apply(lambda x: replaceFaceCardsJ(x.hand), axis = 1)
+    df_rank_j6["handsWOFaceCardsJ"] = df_rank_j6.apply(lambda x: replaceFaceCards(x.hand, faceCardsJ), axis = 1)
 else: df_rank_j6 = pd.DataFrame(columns=["hand", "bid", "countCardsDict", "ranked", "handsWOFaceCards", "jokerDict", "rankedJoker", "handsWOFaceCardsJ"])
 
 df_rank_j0 = df_rank_j0.sort_values(by="handsWOFaceCardsJ")
